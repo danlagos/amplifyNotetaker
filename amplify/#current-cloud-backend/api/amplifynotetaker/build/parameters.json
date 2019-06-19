@@ -8,5 +8,5 @@
         ]
     },
     "S3DeploymentBucket": "amplify-notetaker-noteenv-20190509002038-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/fb92524ee06c7adfbc6d6b8fa434aa4149c6ddbb"
+    "S3DeploymentRootKey": "amplify-appsync-files/909bf23729bafb258e5822c562c40f1b39bf966e"
 }

@@ -682,6 +682,30 @@
         }
     },
     "Outputs": {
+        "GetAttNoteDataSourceName": {
+            "Description": "Your model DataSource name.",
+            "Value": {
+                "Fn::GetAtt": [
+                    "NoteDataSource",
+                    "Name"
+                ]
+            },
+            "Export": {
+                "Name": {
+                    "Fn::Join": [
+                        ":",
+                        [
+                            {
+                                "Ref": "AppSyncApiId"
+                            },
+                            "GetAtt",
+                            "NoteDataSource",
+                            "Name"
+                        ]
+                    ]
+                }
+            }
+        },
         "GetAttNoteTableName": {
             "Description": "Your DynamoDB table name.",
             "Value": {
