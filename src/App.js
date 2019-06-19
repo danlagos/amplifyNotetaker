@@ -56,6 +56,7 @@ class App extends Component {
       }
     })
   }
+  
 // will clean up listeners
   componentWillUnmount() {
     this.createNoteListener.unsubscribe();
