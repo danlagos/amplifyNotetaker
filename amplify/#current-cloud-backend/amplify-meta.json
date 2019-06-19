@@ -1,0 +1,52 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-notetaker-noteenv-20190509002038-authRole",
+			"UnauthRoleArn": "arn:aws:iam::666838304879:role/amplify-notetaker-noteenv-20190509002038-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::666838304879:role/amplify-notetaker-noteenv-20190509002038-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "amplify-notetaker-noteenv-20190509002038-deployment",
+			"UnauthRoleName": "amplify-notetaker-noteenv-20190509002038-unauthRole",
+			"StackName": "amplify-notetaker-noteenv-20190509002038",
+			"StackId": "arn:aws:cloudformation:us-west-2:666838304879:stack/amplify-notetaker-noteenv-20190509002038/f293dbc0-722a-11e9-8027-0ade61d04ee6"
+		}
+	},
+	"auth": {
+		"cognito62fc47a7": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-notetaker-noteenv-20190509002038-deployment/amplify-cfn-templates/auth/cognito62fc47a7-cloudformation-template.yml",
+				"logicalId": "authcognito62fc47a7"
+			},
+			"lastPushTimeStamp": "2019-05-09T07:43:11.397Z",
+			"output": {
+				"AppClientSecret": "dt0qs4k0pvnpkfimr5pppj1bl97li2dqhntulbnh6padcl9fndg",
+				"UserPoolId": "us-west-2_HkQwCXfW2",
+				"AppClientIDWeb": "1becqv2plj9fj8u3q2hure7dvu",
+				"AppClientID": "12nbc04803oeanutp8lhug24co",
+				"IdentityPoolId": "us-west-2:fdeb5c79-abdb-426a-b854-271a8a6a5635",
+				"IdentityPoolName": "cognito62fc47a7_identitypool_62fc47a7__noteenv",
+				"UserPoolName": "cognito62fc47a7_userpool_62fc47a7"
+			},
+			"lastPushDirHash": "UQq0QOagX1N7eYRAwlVCZJw/EbY="
+		}
+	},
+	"api": {
+		"amplifynotetaker": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "AMAZON_COGNITO_USER_POOLS",
+				"GraphQLAPIIdOutput": "lp26z4eskbgodpatxe5xivq6ge",
+				"GraphQLAPIEndpointOutput": "https://rwsklerz4fbb5hhtmkcj5m5amq.appsync-api.us-west-2.amazonaws.com/graphql"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-notetaker-noteenv-20190509002038-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apiamplifynotetaker"
+			},
+			"lastPushTimeStamp": "2019-05-09T07:43:11.397Z",
+			"lastPushDirHash": "eh25NrWt0yQPG9GPORr4anfOztE="
+		}
+	}
+}
