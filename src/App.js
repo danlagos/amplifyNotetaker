@@ -3,22 +3,45 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { withAuthenticator } from 'aws-amplify-react';
 import { createNote, deleteNote, updateNote } from './graphql/mutations';
 import { listNotes } from './graphql/queries';
+import { onCreateNote } from './graphql/subscriptions';
 
 class App extends Component {
+  // standard state variables
   state = {
     id: "",
     note: "",
     notes: []
   };
 
-// when the Component mounts a list of notes will be displayed.  This allows
-// you to see all of the previous notes your've made.  This list is stored
-// in a querry in the graphql folder.  This querry is stored in a variable called
-// listNotes.  listNote.items is the attribute that hold the entire list.
 
-  async componentDidMount(){
+  componentDidMount() {
+    // when the Component mounts a list of notes will be displayed (this.getNotes())
+    this.getNotes();
+    // listener that listens for certain mutations and makes appropriate changes
+    // to state in order to update UI with the next function we get from calling
+    // the subscribe function
+    this.createNoteListener = API.graphql(graphqlOperation(onCreateNote)).subscribe({
+      next: noteData => {
+        const newNote = noteData.value.data.onCreateNote;
+        const prevNotes = this.state.notes.filter(
+          note => note.id !== newNote.id
+        );
+        const updatedNotes = [...prevNotes, newNote];
+        this.setStae({ notes: updatedNotes })
+      }
+    });
+  }
+// will clean up listeners
+  componentWillUnmount() {
+    this.createNoteListener.unsubscribe()
+  }
+
+  // This allows you to see all of the previous notes your've made.  This list is stored
+  // in a querry in the graphql folder.  This querry is stored in a variable called
+  // listNotes.  listNote.items is the attribute that hold the entire list.
+  getNotes = async () => {
     const result = await API.graphql(graphqlOperation(listNotes));
-    this.setState({ notes: result.data.listNotes.items })
+    this.setState({ notes: result.data.listNotes.items });
   }
 
   handleChangeNote = event => this.setState({ note: event.target.value})
@@ -41,10 +64,10 @@ class App extends Component {
     this.handleUpdateNote();
   } else {
     const input = { note };
-    const result = await API.graphql(graphqlOperation(createNote, { input }));
-    const newNote = result.data.createNote;
-    const updatedNotes = [newNote, ...notes];
-    this.setState({ notes: updatedNotes, note: "" });
+    await API.graphql(graphqlOperation(createNote, { input }));
+    // const newNote = result.data.createNote;
+    // const updatedNotes = [newNote, ...notes];
+    this.setState({ note: "" });
     }
   };
 
