@@ -161,6 +161,16 @@
 					"env": "noteenv"
 				}
 			}
+		},
+		"hostingS3AndCloudFront": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplify-notetaker-noteenv-20190509002038-deployment/amplify-cfn-templates/hosting/template.json",
+				"Parameters": {
+					"bucketName": "amplify-notetaker-20190619235030-hostingbucket",
+					"env": "noteenv"
+				}
+			}
 		}
 	},
 	"Outputs": {

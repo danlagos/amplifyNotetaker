@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-notetaker-noteenv-20190509002038-deployment/amplify-cfn-templates/auth/cognito62fc47a7-cloudformation-template.yml",
 				"logicalId": "authcognito62fc47a7"
 			},
-			"lastPushTimeStamp": "2019-06-19T17:44:20.260Z",
+			"lastPushTimeStamp": "2019-06-20T06:52:33.694Z",
 			"output": {
 				"AppClientSecret": "dt0qs4k0pvnpkfimr5pppj1bl97li2dqhntulbnh6padcl9fndg",
 				"UserPoolId": "us-west-2_HkQwCXfW2",
@@ -45,8 +45,26 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-notetaker-noteenv-20190509002038-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apiamplifynotetaker"
 			},
-			"lastPushTimeStamp": "2019-06-19T17:44:21.707Z",
+			"lastPushTimeStamp": "2019-06-20T06:52:33.695Z",
 			"lastPushDirHash": "+WTTJq3kW2nlIDETeTAcpSxNkuQ="
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-notetaker-noteenv-20190509002038-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2019-06-20T06:52:33.696Z",
+			"output": {
+				"S3BucketSecureURL": "https://amplify-notetaker-20190619235030-hostingbucket-noteenv.s3.amazonaws.com",
+				"WebsiteURL": "http://amplify-notetaker-20190619235030-hostingbucket-noteenv.s3-website-us-west-2.amazonaws.com",
+				"Region": "us-west-2",
+				"HostingBucketName": "amplify-notetaker-20190619235030-hostingbucket-noteenv"
+			},
+			"lastPushDirHash": "+Ytf9HqzZw4t2fFMXDoqi/ZZ6+g="
 		}
 	}
 }

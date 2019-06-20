@@ -9,7 +9,10 @@ const awsmobile = {
     "oauth": {},
     "aws_appsync_graphqlEndpoint": "https://rwsklerz4fbb5hhtmkcj5m5amq.appsync-api.us-west-2.amazonaws.com/graphql",
     "aws_appsync_region": "us-west-2",
-    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS"
+    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS",
+    "aws_content_delivery_bucket": "amplify-notetaker-20190619235030-hostingbucket-noteenv",
+    "aws_content_delivery_bucket_region": "us-west-2",
+    "aws_content_delivery_url": "http://amplify-notetaker-20190619235030-hostingbucket-noteenv.s3-website-us-west-2.amazonaws.com"
 };
 
 
