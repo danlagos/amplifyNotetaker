@@ -251,6 +251,7 @@ var AnalyticsClass = /** @class */ (function () {
         });
     };
     AnalyticsClass.prototype._sendEvent = function (params) {
+        var _this = this;
         if (!this.isAnalyticsConfigured()) {
             var errMsg = 'Analytics has not been configured';
             logger.debug(errMsg);
@@ -261,12 +262,13 @@ var AnalyticsClass = /** @class */ (function () {
             return Promise.resolve();
         }
         var provider = params.provider ? params.provider : 'AWSPinpoint';
-        this._pluggables.forEach(function (pluggable) {
-            if (pluggable.getProviderName() === provider) {
-                pluggable.record(params);
-            }
+        return new Promise(function (resolve, reject) {
+            _this._pluggables.forEach(function (pluggable) {
+                if (pluggable.getProviderName() === provider) {
+                    pluggable.record(params, { resolve: resolve, reject: reject });
+                }
+            });
         });
-        return Promise.resolve();
     };
     AnalyticsClass.prototype.autoTrack = function (trackerType, opts) {
         if (!trackers[trackerType]) {

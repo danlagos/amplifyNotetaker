@@ -47,12 +47,12 @@ export default class AnalyticsClass {
      * Record Session start
      * @return - A promise which resolves if buffer doesn't overflow
      */
-    startSession(provider?: string): Promise<void>;
+    startSession(provider?: string): Promise<void | {}>;
     /**
      * Record Session stop
      * @return - A promise which resolves if buffer doesn't overflow
      */
-    stopSession(provider?: string): Promise<void>;
+    stopSession(provider?: string): Promise<void | {}>;
     /**
      * Record one analytic event and send it to Pinpoint
      * @param {String} name - The name of the event
@@ -60,8 +60,8 @@ export default class AnalyticsClass {
      * @param {Object} [metrics] - Event metrics
      * @return - A promise which resolves if buffer doesn't overflow
      */
-    record(event: string | object, provider?: any, metrics?: EventMetrics): Promise<void>;
-    updateEndpoint(attrs: any, provider?: any): Promise<void>;
+    record(event: string | object, provider?: any, metrics?: EventMetrics): Promise<void | {}>;
+    updateEndpoint(attrs: any, provider?: any): Promise<void | {}>;
     private _sendEvent;
     autoTrack(trackerType: any, opts: any): void;
     private isAnalyticsConfigured;
