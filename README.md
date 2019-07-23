@@ -1,4 +1,4 @@
-Notetaker app using AWS Amplify, AWS Cognito, and AWS DynamoDB.  Authentication will require a valid email address and working mobile number for Multi-Factor Authentication (MFA)
+Notetaker app using AWS Amplify, AWS Cognito, AWS S3, GraphQL, and AWS DynamoDB.  Authentication will require a valid email address and working mobile number for Multi-Factor Authentication (MFA).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
